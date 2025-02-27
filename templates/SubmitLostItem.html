@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>存失物</title>
+    <link rel="stylesheet" href="../static/CSS/SubmitLostItem.css">
+</head>
+<body>
+    <div class="header">
+        <img src="../static/Images/Icon.jpeg" alt="Logo">
+        <h1>失物招领系统</h1>
+    </div>
+    <div class="nav">
+        <a href="Index.html">首页</a>
+        <a href="SubmitLostItem.html">存失物</a>
+        <a href="InquireLostItem.html">查询失物</a>
+    </div>
+    <div class="content">
+        <h2>存失物</h2>
+        <form id="lostItemForm" enctype="multipart/form-data">
+            <label for="itemName">失物名称:</label>
+            <input type="text" id="itemName" name="itemName"><br><br>
+
+            <label for="ownerName">失主名字（如果没有姓名贴则不必填写）:</label>
+            <input type="text" id="ownerName" name="ownerName"><br><br>
+
+            <label for="submitter">提交人（可用于班级加分）:</label>
+            <input type="text" id="submitter" name="submitter"><br><br> 
+
+            <label for="notes">备注（具体形容失物样貌等）:</label>
+            <textarea id="notes" name="notes"></textarea><br><br> 
+
+            <label for="itemPhoto">失物照片:</label>
+            <input type="file" id="itemPhoto" name="itemPhoto" accept="image/*" style="display: none;">
+            <button type="button" id="captureButton">拍照</button>
+            <video id="video" autoplay></video>
+            <canvas id="canvas"></canvas>
+            <img id="previewImage" src="" alt="预览图片"><br><br>
+
+            <label for="storageDate">存放日期:</label>
+            <input type="date" id="storageDate" name="storageDate"><br><br>
+
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <script src="../static/JS/Camera.js"></script>
+    <script src="../static/JS/SubmitLostItem.js"></script>
+    <div class="footer" style="text-align: center;">
+        <p>版权所有 © 2023 ChinaTerraStudio</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>珠海市文园中学失物招领智能系统</title>
+    <link rel="stylesheet" href="../static/CSS/Settings.css">
+</head>
+<body>
+    <div class="header">
+        <img src="../static/Images/Icon.jpeg" alt="Logo">
+        <h1>珠海市文园中学失物招领智能系统</h1>
+    </div>
+    <div class="nav">
+        <a href="Index.html">主页</a>
+        <a href="SubmitLostItem.html">存放失物</a>
+        <a href="#">取失物</a>
+        <a href="InquireLostItem.html">查询失物</a>
+        <a href="Login.html">设置</a>
+    </div>
+    <div class="settings-container">
+        <h2>丢失物品</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>物品Id</th>
+                    <th>物品名称</th>
+                    <th>失主姓名</th>
+                    <th>提交人</th>
+                    <th>存放日期</th>
+                    <th>备注</th>
+                    <th>是否取回</th>
+                    <th>取回人</th>
+                    <th>取回时间</th>
+                    <th>图片</th>
+                    <th>删除</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items_db1 %}
+                <tr>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.itemName }}</td>
+                    <td>{{ item.ownerName }}</td>
+                    <td>{{ item.submitter }}</td>
+                    <td>{{ item.storageDate }}</td>
+                    <td>{{ item.notes }}</td>
+                    <td>{{ item.isRetrieved }}</td>
+                    <td>{{ item.retriever }}</td>
+                    <td>{{ item.retrieve_date }}</td>
+                    <td>
+                        <img src="{{ item.itemPhotoPath }}" alt="Item Image" onclick="showImage(this.src)" style="width: 50px; height: 50px; cursor: pointer;">
+                    </td>
+                    <td>
+                        <button onclick="deleteItem(this)">删除</button> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+    </div>
+
+    <div class="image-preview" id="imagePreview">
+        <img src="" alt="Enlarged Image">
+        <span onclick="hideImage()" style="position: absolute; top: 10px; right: 20px; color: white; font-size: 24px; cursor: pointer;">&times;</span>
+    </div>
+
+    <script src="../static/JS/Settings.js"></script>
+    <div class="footer" style="text-align: center;">
+        <p>版权所有 © 2023 ChinaTerraStudio</p>
+    </div>
+</body>
+</html>
